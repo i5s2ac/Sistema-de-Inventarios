@@ -32,12 +32,18 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validatedData = $request->validate([
+
             'name' => 'required',
-            'detail' => 'required',
+            'description' => 'required',
+            'quantity' => 'required',
+            'acquisition_cost' => 'required',
+            'acquisition_date' => 'required',
+            'storage_cost' => 'required|numeric',
+            'idEmployee' => 'required',
         ]);
 
-        Item::create($request->all());
+        Item::create($validatedData);
 
         return redirect()->route('items.index')
                         ->with('success','Item created successfully.');
@@ -68,7 +74,10 @@ class ItemController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'detail' => 'required',
+            'description' => 'required',
+            'acquisition_cost' => 'required',
+            'acquisition_date' => 'required',
+            'storage_cost' => 'required',
         ]);
 
         $item->update($request->all());
