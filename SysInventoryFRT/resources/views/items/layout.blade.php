@@ -8,13 +8,15 @@
     <style>
         .sidebar {
             height: 100%;
-            width: 220px;
-            position: absolute;
+            width: 240px;
+            position: fixed;
             top: 0;
             left: 0;
             background-color: #343a40;
             overflow-x: hidden;
             padding-top: 20px;
+            transition: all 0.3s;
+            z-index: 999;
         }
 
         .sidebar a {
@@ -22,14 +24,22 @@
             color: white;
             padding: 10px;
             text-decoration: none;
+            font-size: 14px;
+            width: calc(100% - 20px);
+            /* Establece el ancho en un 100% menos 20px (ajusta según tus necesidades) */
+            padding-left: 10px;
+            /* Establece el relleno izquierdo */
+            padding-right: 10px;
+            /* Establece el relleno derecho */
         }
 
         .sidebar a:hover {
             background-color: #616161;
+            text-decoration: none;
         }
 
         .sidebar .active {
-            background-color: #4CAF50;
+            background-color: #007bff;
             color: white;
         }
 
@@ -37,10 +47,29 @@
             flex: 1;
             padding-left: 270px;
             padding-right: 40px;
+            transition: all 0.3s;
         }
 
         .sidebar .nav-link {
             width: 100%;
+        }
+
+        .sidebar img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .sidebar .dropdown .dropdown-toggle {
+            color: white;
+        }
+
+        .sidebar .dropdown:hover .dropdown-toggle {
+            color: #4CAF50;
+        }
+
+        .sidebar .dropdown-menu {
+            margin-top: 8px;
         }
     </style>
 
@@ -55,38 +84,38 @@
             <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark sidebar">
                 <div class="d-flex flex-column flex-shrink-0 p-3">
 
-                    <img src="{{ asset('img/FRT.png') }}" alt="Logo" width="160" height="55">
+                    <img src="{{ asset('img/FRT.png') }}" alt="Logo" width="180" height="65">
 
 
                     <hr>
-                    <ul class="nav nav-pills flex-column mb-auto">
+                    <ul class="nav nav-pills flex-column mb-auto" id="sidebar-menu">
                         <li class="nav-item">
-                            <a href="#" class="nav-link active" aria-current="page">
+                            <a href="#" class="nav-link active" aria-current="page" data-page="home">
                                 <i class="fas fa-home me-2"></i>
 
                                 Home
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav-link text-white">
+                            <a href="#" class="nav-link text-white" data-page="dashboard">
                                 <i class="fas fa-tachometer-alt me-2"></i>
                                 Dashboard
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('items.index') }}" class="nav-link text-white">
+                            <a href="{{ route('items.index') }}" class="nav-link text-white" data-page="inventario">
                                 <i class="fas fa-box me-2"></i>
                                 Inventario
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav-link text-white">
+                            <a href="#" class="nav-link text-white" data-page="proveedores">
                                 <i class="fas fa-truck me-2"></i>
                                 Proveedores
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav-link text-white">
+                            <a href="#" class="nav-link text-white" data-page="empleados">
                                 <i class="fas fa-users me-2"></i>
                                 Empleados
                             </a>
@@ -95,11 +124,11 @@
                     <hr>
                     <div class="dropdown">
                         <a href="#"
-                            class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+                            class="d-flex align-items-left text-white text-decoration-none dropdown-toggle"
                             id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="https://github.com/mdo.png" alt="" width="32" height="32"
                                 class="rounded-circle me-2">
-                            <strong>mdo</strong>
+                            <strong>Isaac Cyrman C</strong>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
                             <li><a class="dropdown-item" href="#">New project...</a></li>
@@ -116,6 +145,19 @@
             <div class="col-9">
                 @yield('content')
             </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#sidebar-menu a').on('click', function() {
+                $('#sidebar-menu a').removeClass('active');
+                $(this).addClass('active');
+            });
+        });
+    </script>
 </body>
 
 </html>
