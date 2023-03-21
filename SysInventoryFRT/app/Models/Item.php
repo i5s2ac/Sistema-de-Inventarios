@@ -17,6 +17,5 @@ class Item extends Model
         'acquisition_cost',
         'acquisition_date',
         'expiration_date',
-        'storage_cost',
-        'idEmployee',];
+        'storage_cost'];
 }

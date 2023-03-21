@@ -128,7 +128,7 @@
                             id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="https://github.com/mdo.png" alt="" width="32" height="32"
                                 class="rounded-circle me-2">
-                            <strong>Isaac Cyrman C</strong>
+                            <strong>Isaac Cyrman</strong>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
                             <li><a class="dropdown-item" href="#">New project...</a></li>
@@ -148,8 +148,7 @@
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0-alpha1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl7/1L_dstPt3HV5HzF6Gvk/e3U2XsX6wRdo1Jszcr" crossorigin="anonymous">
     <script>
         $(document).ready(function() {
             $('#sidebar-menu a').on('click', function() {

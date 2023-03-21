@@ -21,7 +21,6 @@ return new class extends Migration
             $table->date('acquisition_date'); // Fecha de adquisición
             $table->date('expiration_date')->nullable(); // Fecha de vencimiento (si es relevante)
             $table->decimal('storage_cost', 16, 2); // Costo de almacenamiento
-            $table->integer('idEmployee')->nullable();
             $table->timestamps();
         });
     }

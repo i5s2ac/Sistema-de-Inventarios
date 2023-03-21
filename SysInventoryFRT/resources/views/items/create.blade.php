@@ -86,25 +86,6 @@
                 </div>
             </div>
 
-
-            <div class="mt-3">
-                <div id="idEmployee">
-                    <div class="mb-2">
-                        <label for="idEmployee">Empleado</label>
-                    </div>
-                    <select class="form-control" name="idEmployee" id="idEmployee">
-                        <option value="" selected>Selecciona un empleado</option>
-                        <option value="1" {{ old('idEmployee') == '1' ? 'selected' : '' }}>David
-                        </option>
-                        <option value="2" {{ old('idEmployee') == '2' ? 'selected' : '' }}>Isaac
-                        </option>
-                        <option value="3" {{ old('idEmployee') == '3' ? 'selected' : '' }}>Luis
-                        </option>
-                    </select>
-                </div>
-            </div>
-
-
             <br>
 
             <div class="col-xs-12 col-sm-12 col-md-12 text-left">
