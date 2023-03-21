@@ -86,6 +86,23 @@
                 </div>
             </div>
 
+            <div class="mt-3">
+                <div id="typeItem">
+                    <div class="mb-2">
+                        <label for="typeItem">Tipo de item</label>
+                    </div>
+                    <select class="form-control" name="typeItem" id="typeItem">
+                        <option value="" selected>Selecciona un tipo</option>
+                        <option value="Computadora" {{ old('typeItem') == 'Computadora' ? 'selected' : '' }}>Computadora
+                        </option>
+                        <option value="UPS" {{ old('typeItem') == 'UPS' ? 'selected' : '' }}>UPS
+                        </option>
+                        <option value="Firewall" {{ old('typeItem') == 'Firewall' ? 'selected' : '' }}>Firewall
+                        </option>
+                    </select>
+                </div>
+            </div>
+
             <br>
 
             <div class="col-xs-12 col-sm-12 col-md-12 text-left">

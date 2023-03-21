@@ -10,12 +10,14 @@ class Item extends Model
     use HasFactory;
 
     protected $fillable = [
-        //'sku',
+        'sku',
         'name',
         'description',
         'quantity',
         'acquisition_cost',
         'acquisition_date',
         'expiration_date',
-        'storage_cost'];
+        'storage_cost',
+        'typeItem',
+        'barcode_image_path'];
 }

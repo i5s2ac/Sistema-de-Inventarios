@@ -92,6 +92,7 @@
                 <th>No</th>
                 <th>Name</th>
                 <th>Details</th>
+                <th>SKU</th>
                 <th width="280px">Action</th>
             </tr>
         </thead>
@@ -99,7 +100,8 @@
             <tr>
                 <td>{{ ++$i }}</td>
                 <td>{{ $item->name }}</td>
-                <td>{{ $item->detail }}</td>
+                <td>{{ $item->description }}</td>
+                <td>{{ $item->sku }}</td>
                 <td>
                     <form action="{{ route('items.destroy', $item->id) }}" method="POST">
 
@@ -117,5 +119,4 @@
         @endforeach
     </table>
 
-    {!! $items->links() !!}
 @endsection

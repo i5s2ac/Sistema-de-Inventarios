@@ -14,13 +14,15 @@ return new class extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->string('name'); //Nombre del producto
-            //$table->string('sku'); // SKU del producto
+            $table->string('sku'); // SKU del producto
             $table->text('description'); // Descripción del producto
             $table->integer('quantity'); // Cantidad en inventario
             $table->decimal('acquisition_cost', 16, 2); // Costo de adquisición
             $table->date('acquisition_date'); // Fecha de adquisición
             $table->date('expiration_date')->nullable(); // Fecha de vencimiento (si es relevante)
             $table->decimal('storage_cost', 16, 2); // Costo de almacenamiento
+            $table->string('typeItem'); // Tipo de item que se almacenará
+            $table->string('barcode_image_path')->nullable(); //url de imagen
             $table->timestamps();
         });
     }
