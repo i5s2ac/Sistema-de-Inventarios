@@ -91,16 +91,16 @@
             <tr>
                 <th>No</th>
                 <th>Nombre</th>
-                <th>Detalles</th>
+                <th>Tipo de item</th>
                 <th>SKU</th>
-                <th width="280px">Action</th>
+                <th width="500px">Acciones</th>
             </tr>
         </thead>
         @foreach ($items as $item)
             <tr>
                 <td>{{ ++$i }}</td>
                 <td>{{ $item->name }}</td>
-                <td>{{ $item->description }}</td>
+                <td>{{ $item->typeItem }}</td>
                 <td>{{ $item->sku }}</td>
                 <td>
                     <form action="{{ route('items.destroy', $item->id) }}" method="POST">
@@ -114,9 +114,9 @@
 
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
+
                 </td>
             </tr>
         @endforeach
     </table>
-
 @endsection
