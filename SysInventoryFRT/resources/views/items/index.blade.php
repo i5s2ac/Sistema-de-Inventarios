@@ -17,22 +17,40 @@
             padding: 0;
         }
 
+        .card-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 30vh;
+            margin: 0 -5px;
+        }
+
         .card {
-            max-width: 250px;
-            min-height: 120px;
-            margin: 50px;
+            width: calc(25.8% - 10px);
+            margin: 0 10px;
             border: none;
+            left: 115px;
             border-radius: 10px;
             background-color: #1f1f1f;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             overflow: hidden;
             padding: 15px;
             text-align: center;
-            position: absolute;
-            left: 235px;
-            border-left: 20px solid #0d6efd;
+            position: relative;
+
         }
 
+        .card::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 10px;
+            height: 100%;
+            background-color: #0d6efd;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
 
         .card-title {
             font-size: 1.1em;
@@ -56,12 +74,30 @@
 
 <body>
 
-    <div class="card">
-        <span class="material-icons">
-            inventory_2
-        </span>
-        <h5 class="card-title">Items</h5>
-        <p class="card-text">150</p>
+    <div class="card-container">
+        <div class="card">
+            <span class="material-icons">
+                inventory_2
+            </span>
+            <h5 class="card-title">Items</h5>
+            <p class="card-text">150</p>
+        </div>
+
+        <div class="card">
+            <span class="material-icons">
+                local_shipping
+            </span>
+            <h5 class="card-title">Productos</h5>
+            <p class="card-text">80</p>
+        </div>
+
+        <div class="card">
+            <span class="material-icons">
+                store
+            </span>
+            <h5 class="card-title">Sucursales</h5>
+            <p class="card-text">12</p>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>

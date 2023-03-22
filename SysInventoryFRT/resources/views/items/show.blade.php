@@ -60,13 +60,9 @@
                             <a class="btn btn-danger" href="{{ route('items.index') }}">
                                 <i class="fas fa-file-pdf"></i> Descargar en PDF
                             </a>
-
-
                         </div>
                     </div>
                 </div>
-
-
 
             </div>
         </div>
