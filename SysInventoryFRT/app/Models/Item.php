@@ -19,5 +19,6 @@ class Item extends Model
         'expiration_date',
         'storage_cost',
         'typeItem',
-        'barcode_image_path'];
+        'barcode_image_path',
+        'photo'];
 }

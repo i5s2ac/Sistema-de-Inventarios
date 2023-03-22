@@ -22,7 +22,8 @@ return new class extends Migration
             $table->date('expiration_date')->nullable(); // Fecha de vencimiento (si es relevante)
             $table->decimal('storage_cost', 16, 2); // Costo de almacenamiento
             $table->string('typeItem'); // Tipo de item que se almacenará
-            $table->string('barcode_image_path')->nullable(); //url de imagen
+            $table->string('barcode_image_path')->nullable(); //url de imagen de barcode
+            $table->string('photo')->nullable(); //url de imagen de producto
             $table->timestamps();
         });
     }

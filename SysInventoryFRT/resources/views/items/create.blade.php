@@ -15,7 +15,7 @@
     @endif
 
 
-    <form action="{{ route('items.store') }}" method="POST">
+    <form action="{{ route('items.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <br>
@@ -33,6 +33,14 @@
 
         <br>
 
+        <div class="mt-3">
+            <div class="mb-2">
+                <label for="photo">Foto del ítem</label>
+            </div>
+            <input type="file" class="form-control" name="photo" accept="image/*">
+        </div>
+
+        <br>
 
         <div class="row justify-content-start">
             <div class="col-sm-4 col-md-8">
@@ -47,8 +55,8 @@
                     <label for="quantity">Cantidad</label>
                 </div>
                 <input type="number" class="form-control" name="quantity" placeholder="Enter quantity">
-
             </div>
+
         </div>
 
         <div class="mt-3">

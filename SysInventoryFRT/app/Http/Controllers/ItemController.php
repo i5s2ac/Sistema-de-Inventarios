@@ -29,7 +29,6 @@ class ItemController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-
             'name' => 'required',
             'description' => 'required',
             'quantity' => 'required',
@@ -37,13 +36,21 @@ class ItemController extends Controller
             'acquisition_date' => 'required',
             'storage_cost' => 'required|numeric',
             'typeItem' => 'required',
-
+            'photo' => 'sometimes|nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
         $typeItem = $validatedData['typeItem'];
 
-        for ($i = 1; $i <= $request->quantity; $i++) {
+        // Guardar la imagen y almacenar la ruta en la base de datos
+        $filepath = null;
+        if ($request->hasFile('photo')) {
+            $photo = $request->file('photo');
+            $filename = time() . '.' . $photo->getClientOriginalExtension();
+            $filepath = 'uploads/items/' . $filename;
+            Storage::disk('public')->put($filepath, file_get_contents($photo));
+        }
 
+        for ($i = 1; $i <= $request->quantity; $i++) {
             $sku = "FRT-" . $typeItem . '-' . uniqid();
             $generator = new BarcodeGeneratorPNG();
             $barcode = $generator->getBarcode($sku, $generator::TYPE_CODE_128, 1, 150);
@@ -61,8 +68,7 @@ class ItemController extends Controller
                 'typeItem' => $validatedData['typeItem'],
                 'sku' => $sku,
                 'barcode_image_path' => $path,
-
-
+                'photo' => $filepath,
             ];
         }
 
@@ -71,6 +77,7 @@ class ItemController extends Controller
         return redirect()->route('items.index')
             ->with('success', 'Item created successfully.');
     }
+
 
     public function generateBarcode($sku)
     {
@@ -123,5 +130,4 @@ class ItemController extends Controller
         return redirect()->route('items.index')
             ->with('success', 'Item deleted successfully');
     }
-
 }
