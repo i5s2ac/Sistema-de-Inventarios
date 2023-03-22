@@ -26,7 +26,7 @@
         }
 
         .card {
-            width: calc(25.8% - 10px);
+            width: calc(25.7% - 10px);
             margin: 0 10px;
             border: none;
             left: 115px;
@@ -68,6 +68,10 @@
             font-size: 40px;
             color: #0d6efd;
             margin-bottom: 5px;
+        }
+
+        td {
+            vertical-align: middle;
         }
     </style>
 </head>
