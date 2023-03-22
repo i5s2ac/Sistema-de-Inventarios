@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarjeta de conteo de elementos</title>
+    <title>Sistema de invetarios FRT</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
@@ -90,8 +90,8 @@
         <thead class="table-dark">
             <tr>
                 <th>No</th>
-                <th>Name</th>
-                <th>Details</th>
+                <th>Nombre</th>
+                <th>Detalles</th>
                 <th>SKU</th>
                 <th width="280px">Action</th>
             </tr>

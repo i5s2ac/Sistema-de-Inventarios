@@ -78,7 +78,7 @@ class ItemController extends Controller
 
         $barcode = $generator->getBarcode($sku, $generator::TYPE_CODE_128, 1, 150);
 
-        return  file_put_contents(public_path('images/barcode-' . $sku . '.png'), $barcode);
+        //return file_put_contents(public_path('images/barcode-' . $sku . '.png'), $barcode);
     }
 
 
