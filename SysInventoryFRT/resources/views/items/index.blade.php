@@ -115,7 +115,9 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('items.create') }}"> Create New item</a>
+                <a class="btn btn-success" href="{{ route('items.create') }}" style="width: 100%; padding: 10px;">
+                    <i class="fas fa-box"></i> <span style="padding-left: 10px;">Create New item</span>
+                </a>
             </div>
         </div>
     </div>
@@ -133,7 +135,7 @@
                 <th>Nombre</th>
                 <th>Tipo de item</th>
                 <th>SKU</th>
-                <th width="500px">Acciones</th>
+                <th width="400px">Acciones</th>
             </tr>
         </thead>
         @foreach ($items as $item)
