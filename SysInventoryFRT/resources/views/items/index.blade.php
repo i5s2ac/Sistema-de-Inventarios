@@ -73,6 +73,11 @@
         td {
             vertical-align: middle;
         }
+
+        .btn-group.separated .btn {
+            margin-right: 5px;
+        }
+
     </style>
 </head>
 
@@ -115,7 +120,8 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('items.create') }}" style="width: 100%; padding: 10px; background-color: #04748c;">
+                <a class="btn btn-success" href="{{ route('items.create') }}"
+                    style="width: 100%; padding: 10px; background-color: #04748c;">
                     <i class="fas fa-box"></i> <span style="padding-left: 10px;">Create New item</span>
                 </a>
             </div>
@@ -135,6 +141,7 @@
                 <th>Nombre</th>
                 <th>Tipo de item</th>
                 <th>SKU</th>
+                <th>Status</th>
                 <th width="400px">Acciones</th>
             </tr>
         </thead>
@@ -144,21 +151,67 @@
                 <td>{{ $item->name }}</td>
                 <td>{{ $item->typeItem }}</td>
                 <td>{{ $item->sku }}</td>
+                <td>{{ $item->available }}</td>
                 <td>
-                    <form action="{{ route('items.destroy', $item->id) }}" method="POST">
+
+                    <div class="btn-group btn-group-md separated">
+                        <form action="{{ route('unassign', $item->id) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-warning btn-md">
+                                Desasignar </button>
+                        </form>
+
+                        <button type="button" class="btn btn-warning btn-md" data-id="{{ $item->id }}"
+                            data-bs-toggle="modal" data-bs-target="#asignar-{{ $item->id }}">Asignar
+                        </button>
 
                         <a class="btn btn-info" href="{{ route('items.show', $item->id) }}">Show</a>
 
                         <a class="btn btn-primary" href="{{ route('items.edit', $item->id) }}">Edit</a>
 
-                        @csrf
-                        @method('DELETE')
+                        <form action="{{ route('items.destroy', $item->id) }}" method="POST">
 
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
+                            @csrf
+                            @method('DELETE')
+
+                            <button type="submit" class="btn btn-danger btn-md">Borrar</button>
+                        </form>
+                    </div>
 
                 </td>
             </tr>
+
+            <div class="modal fade" id="asignar-{{ $item->id }}" tabindex="-1" aria-labelledby="asignar"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="asignar">
+                                Asignar Empleado
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form method="post" action="{{ route('assign', $item->id) }}" method="post">
+                                @csrf
+                                <label for="employee_id">Employee</label>
+
+                                <select class="form-control" name="employee_id" required>
+                                    <option value="" selected>Selecciona un empleado</option>
+                                    <option value="1">David</option>
+                                    <option value="2">Isaac</option>
+                                    <option value="3">Luis</option>
+                                </select>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Asignar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         @endforeach
     </table>
 @endsection

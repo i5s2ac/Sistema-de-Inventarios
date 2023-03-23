@@ -20,5 +20,7 @@ class Item extends Model
         'storage_cost',
         'typeItem',
         'barcode_image_path',
-        'photo'];
+        'photo',
+        'idEmployee',
+        'available'];
 }

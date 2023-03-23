@@ -37,6 +37,8 @@ class ItemController extends Controller
             'storage_cost' => 'required|numeric',
             'typeItem' => 'required',
             'photo' => 'sometimes|nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'idEmployee' => 'required_if:available,Ocupado',
+            'available' => 'required|string',
         ]);
 
         $typeItem = $validatedData['typeItem'];
@@ -69,6 +71,8 @@ class ItemController extends Controller
                 'sku' => $sku,
                 'barcode_image_path' => $path,
                 'photo' => $filepath,
+                'idEmployee' => $validatedData['idEmployee'],
+                'available' => $validatedData['available'],
             ];
         }
 
@@ -114,7 +118,7 @@ class ItemController extends Controller
             'acquisition_cost' => 'required',
             'acquisition_date' => 'required',
             'storage_cost' => 'required',
-
+            'available' => 'required',
         ]);
 
         $item->update($request->all());
@@ -129,5 +133,41 @@ class ItemController extends Controller
 
         return redirect()->route('items.index')
             ->with('success', 'Item deleted successfully');
+    }
+
+    public function asignar(Request $request, $id)
+    {
+
+        $item = Item::find($id);
+
+
+        if ($item->available == 'Ocupado') {
+            return redirect()->route('items.index')
+                ->with('error', 'Item its already assigned to other employee');
+        } else {
+
+            $item->idEmployee = $request->employee_id;
+            $item->available = "Ocupado";
+            $item->save();
+            return redirect()->route('items.index')
+                ->with('success', 'Item was successfully assigned');
+        }
+    }
+
+    public function desasignar($id)
+    {
+        $item = Item::find($id);
+
+        if ($item->available == 'Ocupado') {
+            $item->idEmployee = null;
+            $item->available = "Disponible";
+            $item->save();
+            return redirect()->route('items.index')
+                ->with('success', 'Item was successfully unassigned');
+        } else {
+
+            return redirect()->route('items.index')
+                ->with('success', 'Item its already available to other employee');
+        }
     }
 }

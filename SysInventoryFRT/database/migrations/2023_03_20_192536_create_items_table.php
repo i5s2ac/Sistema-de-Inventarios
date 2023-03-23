@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('typeItem'); // Tipo de item que se almacenará
             $table->string('barcode_image_path')->nullable(); //url de imagen de barcode
             $table->string('photo')->nullable(); //url de imagen de producto
+            $table->integer('idEmployee')->nullable(); //ID de empleado
+            $table->string('available'); //Disponibilidad del item
             $table->timestamps();
         });
     }

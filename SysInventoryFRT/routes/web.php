@@ -21,3 +21,5 @@ Route::get('/', function () {
 
 
 Route::resource('items', ItemController::class);
+Route::post('/asignar/{id}', [ItemController::class, 'asignar'])->name('assign');
+Route::post('/desasignar/{id}', [ItemController::class, 'desasignar'])->name('unassign');

@@ -107,6 +107,37 @@
             </div>
         </div>
 
+        <div class="col">
+            <div class="mb-2">
+                <label for="available">Status</label>
+            </div>
+            <select class="form-control" name="available" id="available">
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option value="Disponible" {{ old('available') == 'Disponible' ? 'selected' : '' }}>
+                    Disponible
+                </option>
+                <option value="Ocupado" {{ old('available') == 'Ocupado' ? 'selected' : '' }}>Ocupado
+                </option>
+            </select>
+        </div>
+
+        <div class="mt-3">
+            <div id="idEmployee">
+                <div class="mb-2">
+                    <label for="idEmployee">Empleado</label>
+                </div>
+                <select class="form-control" name="idEmployee" id="idEmployee">
+                    <option value="" selected>Selecciona un empleado</option>
+                    <option value="1" {{ old('idEmployee') == '1' ? 'selected' : '' }}>David
+                    </option>
+                    <option value="2" {{ old('idEmployee') == '2' ? 'selected' : '' }}>Isaac
+                    </option>
+                    <option value="3" {{ old('idEmployee') == '3' ? 'selected' : '' }}>Luis
+                    </option>
+                </select>
+            </div>
+        </div>
+
         <br>
         <br>
 
