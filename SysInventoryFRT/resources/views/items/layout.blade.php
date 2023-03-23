@@ -39,7 +39,7 @@
         }
 
         .sidebar .active {
-            background-color: #007bff;
+            background-color: #ffffff;
             color: white;
         }
 
@@ -47,7 +47,7 @@
             flex: 1;
             padding-left: 270px;
             padding-right: 40px;
-            transition: all 0.3s;
+            transition: all 0.0001s;
         }
 
         .sidebar .nav-link {

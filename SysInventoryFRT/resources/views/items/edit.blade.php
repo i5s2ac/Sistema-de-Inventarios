@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Editar item</h2>
+                <h2> <i class="fas fa-cog" style="margin-right: 10px;"></i>Editar item</h2>
             </div>
         </div>
     </div>
@@ -27,6 +27,15 @@
     <form action="{{ route('items.update', $item->id) }}" method="POST">
         @csrf
         @method('PUT')
+
+        <br>
+
+        <div class="mt-3">
+            <div class="mb-2">
+                <label for="photo">Foto del item</label>
+            </div>
+            <input type="file" class="form-control" name="photo" accept="image/*">
+        </div>
 
         <br>
 
@@ -86,8 +95,6 @@
                 </select>
             </div>
         </div>
-
-
 
         <br>
         <br>

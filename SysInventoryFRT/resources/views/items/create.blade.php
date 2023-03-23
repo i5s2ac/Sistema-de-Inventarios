@@ -25,17 +25,16 @@
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left">
-                    <h2>Agregar nuevo item</h2>
+                    <h2> <i class="fas fa-box" style="margin-right: 10px;"></i>Agregar nuevo item</h2>
                 </div>
             </div>
         </div>
-
 
         <br>
 
         <div class="mt-3">
             <div class="mb-2">
-                <label for="photo">Foto del ítem</label>
+                <label for="photo">Foto del item</label>
             </div>
             <input type="file" class="form-control" name="photo" accept="image/*">
         </div>
@@ -108,6 +107,7 @@
             </div>
         </div>
 
+        <br>
         <br>
 
         <div class="col-xs-12 col-sm-12 col-md-12 text-left">

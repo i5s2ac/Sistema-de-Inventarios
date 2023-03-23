@@ -12,7 +12,7 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #0d6efd;
+            background-color: #04748c;
             margin: 0;
             padding: 0;
         }
@@ -47,7 +47,7 @@
             top: 0;
             width: 10px;
             height: 100%;
-            background-color: #0d6efd;
+            background-color: #04748c;
             border-top-left-radius: 5px;
             border-bottom-left-radius: 5px;
         }
@@ -61,12 +61,12 @@
         .card-text {
             font-size: 1.8em;
             font-weight: bold;
-            color: #0d6efd;
+            color: #04748c;
         }
 
         .material-icons {
             font-size: 40px;
-            color: #0d6efd;
+            color: #04748c;
             margin-bottom: 5px;
         }
 
@@ -115,7 +115,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('items.create') }}" style="width: 100%; padding: 10px;">
+                <a class="btn btn-success" href="{{ route('items.create') }}" style="width: 100%; padding: 10px; background-color: #04748c;">
                     <i class="fas fa-box"></i> <span style="padding-left: 10px;">Create New item</span>
                 </a>
             </div>
