@@ -10,6 +10,7 @@
                 background-color: #fafafa;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
                 border-radius: 0.25rem;
+
             }
 
             .image-container {
@@ -20,7 +21,7 @@
             }
 
             .image-container img {
-                max-width: 103%;
+                max-width: 109%;
                 margin-bottom: 15px;
             }
         </style>
@@ -47,7 +48,9 @@
                     <strong>Fecha de adquisición:</strong> {{ $item->acquisition_date }}<br>
                     <strong>Costo de adquisición:</strong> {{ $item->acquisition_cost }}<br>
                     <strong>Costo de almacenaje:</strong> {{ $item->storage_cost }}<br>
-                    <strong>Tipo de ítem:</strong> {{ $item->typeItem }}
+                    <strong>Tipo de ítem:</strong> {{ $item->typeItem }}<br>
+                    <strong>Status:</strong> {{ $item->available }}<br>
+                    <strong>ID empleado:</strong> {{ $item->idEmployee }}
 
                     <br>
                     <br>

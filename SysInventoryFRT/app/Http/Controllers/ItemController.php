@@ -14,8 +14,10 @@ class ItemController extends Controller
     {
         // $items = Item::latest()->paginate(5);
         $items = Item::all();
+        $itemCount = Item::count();
+        $availableItemCount = Item::where('available', 'Disponible')->count();
 
-        return view('items.index', compact('items'))
+        return view('items.index', compact('items','itemCount','availableItemCount'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 

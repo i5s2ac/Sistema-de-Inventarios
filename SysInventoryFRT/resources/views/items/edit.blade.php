@@ -85,16 +85,43 @@
         </div>
 
         <div class="mt-3">
-            <div id="typeItem">
-                <div class="mb-2">
-                    <label for="typeItem">Tipo de item</label>
+            <div class="row align-items-start">
+                <div class="col">
+                    <div class="mb-2">
+                        <label for="typeItem">Tipo de item</label>
+                    </div>
+                    <select class="form-control" name="typeItem" id="typeItem">
+                        <option value="{{ $item->typeItem }}"
+                            selected{{ old('typeItem') == 'seleccionado' ? 'selected' : '' }}>{{ $item->typeItem }}
+                        </option>
+                    </select>
                 </div>
-                <select class="form-control" name="typeItem" id="typeItem">
-                    <option value="" disabled selected>Selecciona un tipo</option>
-                    <option value="{{ $item->typeItem }}"disabled selected>{{ $item->typeItem }}</option>
-                </select>
+
+                <div class="col">
+                    <div class="mb-2">
+                        <label for="available">Status</label>
+                    </div>
+                    <select class="form-control" name="available" id="available">
+                        <option value="{{ $item->available }}"
+                            selected{{ old('available') == 'seleccionado' ? 'selected' : '' }}>{{ $item->available }}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="col">
+                    <div class="mb-2">
+                        <label for="available">ID Employee</label>
+                    </div>
+                    <select class="form-control" name="idEmployee" id="idEmployee">
+                        <option value="{{ $item->idEmployee }}"
+                            selected{{ old('idEmployee') == 'seleccionado' ? 'selected' : '' }}>{{ $item->idEmployee }}
+                        </option>
+                    </select>
+                </div>
             </div>
         </div>
+
+
 
         <br>
         <br>

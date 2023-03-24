@@ -75,7 +75,7 @@
         }
 
         .btn-group.separated .btn {
-            margin-right: 5px;
+            margin-right: 3px;
         }
 
     </style>
@@ -89,15 +89,15 @@
                 inventory_2
             </span>
             <h5 class="card-title">Items</h5>
-            <p class="card-text">150</p>
+            <p class="card-text">{{ $itemCount }}</p>
         </div>
 
         <div class="card">
             <span class="material-icons">
                 local_shipping
             </span>
-            <h5 class="card-title">Productos</h5>
-            <p class="card-text">80</p>
+            <h5 class="card-title">Items Disponibles</h5>
+            <p class="card-text">{{ $availableItemCount }}</p>
         </div>
 
         <div class="card">
@@ -177,7 +177,6 @@
                             <button type="submit" class="btn btn-danger btn-md">Borrar</button>
                         </form>
                     </div>
-
                 </td>
             </tr>
 
