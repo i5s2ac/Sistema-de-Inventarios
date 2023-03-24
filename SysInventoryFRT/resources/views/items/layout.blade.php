@@ -12,7 +12,7 @@
             position: fixed;
             top: 0;
             left: 0;
-            background-color: #343a40;
+            background-color: #ffffff;
             overflow-x: hidden;
             padding-top: 20px;
             transition: all 0.3s;
@@ -34,12 +34,13 @@
         }
 
         .sidebar a:hover {
-            background-color: #616161;
+            background-color: #04748c;
             text-decoration: none;
         }
 
+
         .sidebar .active {
-            background-color: #ffffff;
+            background-color: #04748c !important;
             color: white;
         }
 
@@ -65,14 +66,12 @@
         }
 
         .sidebar .dropdown:hover .dropdown-toggle {
-            color: #4CAF50;
+            color: #04748c;
         }
 
         .sidebar .dropdown-menu {
             margin-top: 8px;
         }
-
-
     </style>
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
@@ -150,7 +149,8 @@
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0-alpha1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl7/1L_dstPt3HV5HzF6Gvk/e3U2XsX6wRdo1Jszcr" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0-alpha1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl7/1L_dstPt3HV5HzF6Gvk/e3U2XsX6wRdo1Jszcr" crossorigin="anonymous">
     <script>
         $(document).ready(function() {
             $('#sidebar-menu a').on('click', function() {

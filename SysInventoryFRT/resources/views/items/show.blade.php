@@ -45,7 +45,8 @@
 
                         </div>
                     </div>
-                    <strong>Nombre:</strong> {{ $item->name }}<br>
+
+                    <strong>Nombre </strong> {{ $item->name }}<br>
                     <strong>SKU:</strong> {{ $item->sku }}<br>
                     <strong>Cantidad:</strong> {{ $item->quantity }}<br>
                     <strong>Descripción:</strong> {{ $item->description }}<br>
