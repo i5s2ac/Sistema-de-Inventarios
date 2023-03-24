@@ -138,9 +138,12 @@
     <br>
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-right"><a class="btn btn-success" href="{{ route('items.create') }}"
-                    style="width: 100%; padding: 10px; background-color: #04748c;"><i class="fas fa-box"></i><span
-                        style="padding-left: 10px;">Create New item</span></a></div>
+            <div class="pull-right">
+                <a class="btn btn-success" href="{{ route('items.create') }}"
+                    style="width: 100%; padding: 10px; background-color: #04748c;">
+                    <i class="fas fa-box"></i> <span style="padding-left: 10px;">Create New item</span>
+                </a>
+            </div>
         </div>
     </div>
 
@@ -171,13 +174,17 @@
                 <td>
                     <div class="btn-group btn-group-md separated">
                         <form action="{{ route('unassign', $item->id) }}" method="POST">@csrf <button type="submit"
-                                class="btn btn-warning btn-md">Desasignar </button></form><button type="button"
-                            class="btn btn-warning btn-md" data-id="{{ $item->id }}" data-bs-toggle="modal"
-                            data-bs-target="#asignar-{{ $item->id }}">Asignar </button><a class="btn btn-info"
-                            href="{{ route('items.show', $item->id) }}">Show</a><a class="btn btn-primary"
+                                class="btn btn-md" style="background-color: #04748c; color: white">Desasignar </button>
+                        </form><button type="button" class="btn btn-md" style="background-color: #04748c; color: white"
+                            data-id="{{ $item->id }}" data-bs-toggle="modal"
+                            data-bs-target="#asignar-{{ $item->id }}">Asignar </button><a class="btn btn-md"
+                            style="background-color: #04748c; color: white"
+                            href="{{ route('items.show', $item->id) }}">Show</a><a class="btn btn-md"
+                            style="background-color: #04748c; color: white"
                             href="{{ route('items.edit', $item->id) }}">Edit</a>
                         <form action="{{ route('items.destroy', $item->id) }}" method="POST">@csrf @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-md">Borrar</button>
+                            <button type="submit" class="btn btn-md"
+                                style="background-color: #04748c; color: white">Borrar</button>
                         </form>
                     </div>
                 </td>

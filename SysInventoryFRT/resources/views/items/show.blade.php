@@ -37,8 +37,12 @@
                 <div class="p-4 card-custom">
                     <div class="row">
                         <div class="col-lg-12 mb-4">
-                            <h2 class="text-left">Datos del Item</h2>
+                            <h2 class="text-left">
+                                <i class="fas fa-clipboard-list" style="margin-right: 10px;"></i>
+                                Datos del item
+                            </h2>
                             <hr style="border-style: solid; border-width: 1px 0 0;">
+
                         </div>
                     </div>
                     <strong>Nombre:</strong> {{ $item->name }}<br>
