@@ -2,7 +2,6 @@
 
 @section('content')
 
-
     @if ($errors->any())
         <div class="alert alert-danger">
             <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -13,7 +12,6 @@
             </ul>
         </div>
     @endif
-
 
     <form action="{{ route('items.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -113,7 +111,6 @@
                     </div>
                 </div>
 
-
                 <div class="col">
                     <div class="mb-2">
                         <label for="available">Status</label>
@@ -149,10 +146,6 @@
             </div>
         </div>
 
-
-
-
-
         <br>
         <br>
 
@@ -160,7 +153,6 @@
             <button type="submit" class="btn btn-success">Aceptar</button>
             <a class="btn btn-primary" href="{{ route('items.index') }}"> Atrás</a>
         </div>
-
 
     </form>
 
@@ -175,4 +167,5 @@
             }
         }
     </script>
+
 @endsection

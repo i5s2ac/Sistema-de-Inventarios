@@ -16,8 +16,9 @@ class ItemController extends Controller
         $items = Item::all();
         $itemCount = Item::count();
         $availableItemCount = Item::where('available', 'Disponible')->count();
+        $availableItemCount2 = Item::where('available', 'Ocupado')->count();
 
-        return view('items.index', compact('items','itemCount','availableItemCount'))
+        return view('items.index', compact('items','itemCount','availableItemCount','availableItemCount2'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
