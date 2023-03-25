@@ -9,7 +9,7 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('empleados', function (Blueprint $table) {
             $table->id();
@@ -17,13 +17,24 @@ return new class extends Migration
             $table->text('detail');
             $table->timestamps();
         });
-    }
 
+        Schema::create('departamentos', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('departamento_id');
+            $table->foreign('departamento_id')->references('id')->on('empleados');
+            $table->text('nombre');
+            $table->timestamps();
+
+        });
+    }
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
+        Schema::dropIfExists('departamentos');
         Schema::dropIfExists('empleados');
     }
 };
