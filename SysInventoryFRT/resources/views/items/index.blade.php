@@ -19,27 +19,24 @@
         }
 
         .card-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 30vh;
-            margin: 0 -5px;
-            position: relative;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            /* Cambia el valor de 'minmax' para ajustar el tamaño mínimo de la tarjeta */
+            grid-gap: 18px;
+            max-width: 97.8%;
+            padding: 20px;
         }
 
         .card {
-            width: calc(25.7% - 10px);
-            margin: 0 10px;
             border: none;
-            left: 115px;
             border-radius: 10px;
             background-color: #1f1f1f;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             overflow: hidden;
-            padding: 15px;
+            padding: 18px;
+            /* Ajusta este valor para cambiar el relleno interno de la tarjeta */
             text-align: center;
             position: relative;
-
         }
 
         .card::before {
@@ -97,6 +94,11 @@
             background-size: cover;
             background-position: center;
         }
+
+        .main-content {
+            margin-left: 260px;
+            /* Ajusta este valor según el ancho de tu barra lateral */
+        }
     </style>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -107,26 +109,28 @@
 
 <body>
 
-    <div class="card-container">
+    <div class="main-content">
+        <div class="card-container">
 
-        <div class="card card-items">
-            <span class="material-icons">
-                inventory_2
-            </span>
-            <h5 class="card-title">Items registrados</h5>
-            <p class="card-text">{{ $itemCount }}</p>
-        </div>
+            <div class="card card-items">
+                <span class="material-icons">
+                    inventory_2
+                </span>
+                <h5 class="card-title">Items registrados</h5>
+                <p class="card-text">{{ $itemCount }}</p>
+            </div>
 
-        <div class="card card-available">
-            <span class="material-icons">check_circle </span>
-            <h5 class="card-title">Items disponibles</h5>
-            <p class="card-text">{{ $availableItemCount }}</p>
-        </div>
+            <div class="card card-available">
+                <span class="material-icons">check_circle </span>
+                <h5 class="card-title">Items disponibles</h5>
+                <p class="card-text">{{ $availableItemCount }}</p>
+            </div>
 
-        <div class="card card-unavailable">
-            <span class="material-icons">highlight_off </span>
-            <h5 class="card-title">Items ocupados</h5>
-            <p class="card-text">{{ $availableItemCount2 }}</p>
+            <div class="card card-unavailable">
+                <span class="material-icons">highlight_off </span>
+                <h5 class="card-title">Items ocupados</h5>
+                <p class="card-text">{{ $availableItemCount2 }}</p>
+            </div>
         </div>
     </div>
 
@@ -136,7 +140,10 @@
 
 @section('content')
     <br>
+
+
     <div class="row">
+
         <div class="col-lg-12 margin-tb">
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('items.create') }}"
@@ -153,67 +160,69 @@
         </div>
     @endif
 
-    <table class="table" style="font-size: 14px;">
-        <thead class="table-dark">
-            <tr>
-                <th>No</th>
-                <th>Nombre</th>
-                <th>Tipo de item</th>
-                <th>SKU</th>
-                <th>Status</th>
-                <th width="400px">Acciones</th>
-            </tr>
-        </thead>
-        @foreach ($items as $item)
-            <tr>
-                <td>{{ ++$i }}</td>
-                <td>{{ $item->name }}</td>
-                <td>{{ $item->typeItem }}</td>
-                <td>{{ $item->sku }}</td>
-                <td>{{ $item->available }}</td>
-                <td>
-                    <div class="btn-group btn-group-md separated">
-                        <form action="{{ route('unassign', $item->id) }}" method="POST">@csrf <button type="submit"
-                                class="btn btn-md" style="background-color: #04748c; color: white">Desasignar </button>
-                        </form><button type="button" class="btn btn-md" style="background-color: #04748c; color: white"
-                            data-id="{{ $item->id }}" data-bs-toggle="modal"
-                            data-bs-target="#asignar-{{ $item->id }}">Asignar </button><a class="btn btn-md"
-                            style="background-color: #04748c; color: white"
-                            href="{{ route('items.show', $item->id) }}">Show</a><a class="btn btn-md"
-                            style="background-color: #04748c; color: white"
-                            href="{{ route('items.edit', $item->id) }}">Edit</a>
-                        <form action="{{ route('items.destroy', $item->id) }}" method="POST">@csrf @method('DELETE')
-                            <button type="submit" class="btn btn-md"
-                                style="background-color: #04748c; color: white">Borrar</button>
-                        </form>
-                    </div>
-                </td>
-            </tr>
-            <div class="modal fade" id="asignar-{{ $item->id }}" tabindex="-1" aria-labelledby="asignar"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="asignar">Asignar Empleado </h5><button type="button"
-                                class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form method="post" action="{{ route('assign', $item->id) }}" method="post">@csrf <label
-                                    for="employee_id">Employee</label><select class="form-control" name="employee_id"
-                                    required>
-                                    <option value="" selected>Selecciona un empleado</option>
-                                    <option value="1">David</option>
-                                    <option value="2">Isaac</option>
-                                    <option value="3">Luis</option>
-                                </select>
-                                <div class="modal-footer"><button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Close</button><button type="submit"
-                                        class="btn btn-primary">Asignar</button></div>
+    <div class="table-responsive">
+        <table class="table" style="font-size: 14px;">
+            <thead class="table-dark">
+                <tr>
+                    <th>No</th>
+                    <th>Nombre</th>
+                    <th>Tipo de item</th>
+                    <th>SKU</th>
+                    <th>Status</th>
+                    <th width="400px">Acciones</th>
+                </tr>
+            </thead>
+            @foreach ($items as $item)
+                <tr>
+                    <td>{{ ++$i }}</td>
+                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->typeItem }}</td>
+                    <td>{{ $item->sku }}</td>
+                    <td>{{ $item->available }}</td>
+                    <td>
+                        <div class="btn-group btn-group-md separated">
+                            <form action="{{ route('unassign', $item->id) }}" method="POST">@csrf <button type="submit"
+                                    class="btn btn-md" style="background-color: #04748c; color: white">Desasignar </button>
+                            </form><button type="button" class="btn btn-md" style="background-color: #04748c; color: white"
+                                data-id="{{ $item->id }}" data-bs-toggle="modal"
+                                data-bs-target="#asignar-{{ $item->id }}">Asignar </button><a class="btn btn-md"
+                                style="background-color: #04748c; color: white"
+                                href="{{ route('items.show', $item->id) }}">Show</a><a class="btn btn-md"
+                                style="background-color: #04748c; color: white"
+                                href="{{ route('items.edit', $item->id) }}">Edit</a>
+                            <form action="{{ route('items.destroy', $item->id) }}" method="POST">@csrf @method('DELETE')
+                                <button type="submit" class="btn btn-md"
+                                    style="background-color: #04748c; color: white">Borrar</button>
                             </form>
+                        </div>
+                    </td>
+                </tr>
+                <div class="modal fade" id="asignar-{{ $item->id }}" tabindex="-1" aria-labelledby="asignar"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="asignar">Asignar Empleado </h5><button type="button"
+                                    class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="post" action="{{ route('assign', $item->id) }}" method="post">@csrf <label
+                                        for="employee_id">Employee</label><select class="form-control" name="employee_id"
+                                        required>
+                                        <option value="" selected>Selecciona un empleado</option>
+                                        <option value="1">David</option>
+                                        <option value="2">Isaac</option>
+                                        <option value="3">Luis</option>
+                                    </select>
+                                    <div class="modal-footer"><button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button><button type="submit"
+                                            class="btn btn-primary">Asignar</button></div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        @endforeach
-    </table>
+            @endforeach
+        </table>
+    </div>
 @endsection
