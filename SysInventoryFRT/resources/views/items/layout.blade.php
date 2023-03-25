@@ -116,7 +116,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav-link text-white" data-page="empleados">
+                            <a href="{{ route('empleados.index') }}" class="nav-link text-white" data-page="empleados">
                                 <i class="fas fa-users me-2"></i>
                                 Empleados
                             </a>
