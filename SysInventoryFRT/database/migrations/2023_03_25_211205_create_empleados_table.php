@@ -21,11 +21,26 @@ return new class extends Migration
         Schema::create('empleados', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('departamento_id');
+            $table->foreign('departamento_id')->references('id')->on('departamentos');
             $table->string('name');
-            $table->text('detail');
+            $table->bigInteger('dpi');
+            $table->date('fecha_de_nacimiento');
+            $table->string('genero');
+            $table->string('estado_civil');
+            $table->string('email')->unique();
+            $table->bigInteger('telefono')->unique();
+            $table->text('direccion');
+            $table->string('departamento');
+            $table->string('municipio');
+            $table->bigInteger('codigo_postal');
+            $table->string('pais');
+            $table->string('puesto');
+            $table->decimal('salario');
+            $table->string('tipo_contrato');
+            $table->bigInteger('contacto_emergencia1');
+            $table->bigInteger('contacto_emergencia2');
             $table->timestamps();
 
-            $table->foreign('departamento_id')->references('id')->on('departamentos');
         });
     }
     /**
