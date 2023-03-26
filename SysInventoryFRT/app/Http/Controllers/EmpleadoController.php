@@ -34,8 +34,24 @@ class EmpleadoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'detail' => 'required',
+            'name' => 'required|string',
+            'dpi' => 'required|integer',
+            'fecha_de_nacimiento' => 'required|date',
+            'genero' => 'required|string',
+            'estado_civil' => 'required|string',
+            'email' => 'required|email|unique:empleados,email',
+            'telefono' => 'required|integer|unique:empleados,telefono',
+            'direccion' => 'required|string',
+            //'departamento' => 'required|string',
+            'municipio' => 'required|string',
+            'codigo_postal' => 'required|integer',
+            'pais' => 'required|string',
+            'puesto' => 'required|string',
+            'salario' => 'required|numeric',
+            'tipo_contrato' => 'required|string',
+            'contacto_emergencia1' => 'required|integer',
+            'contacto_emergencia2' => 'required|integer',
+            'departamento_id' => 'required|exists:departamentos,id',
         ]);
 
         Empleado::create($request->all());

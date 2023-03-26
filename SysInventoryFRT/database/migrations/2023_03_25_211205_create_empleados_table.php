@@ -30,7 +30,6 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->bigInteger('telefono')->unique();
             $table->text('direccion');
-            $table->string('departamento');
             $table->string('municipio');
             $table->bigInteger('codigo_postal');
             $table->string('pais');

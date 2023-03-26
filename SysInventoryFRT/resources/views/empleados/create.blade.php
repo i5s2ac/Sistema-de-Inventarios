@@ -233,12 +233,16 @@
         <br>
         <br>
 
+        <div class="col-xs-12 col-sm-12 col-md-12 text-left">
+            <button type="submit" class="btn btn-success">Aceptar</button>
+            <a class="btn btn-primary" href="{{ route('empleados.index') }}"> Atrás</a>
+        </div>
+
     </form>
 
-    <div class="col-xs-12 col-sm-12 col-md-12 text-left">
-        <button type="submit" class="btn btn-success">Aceptar</button>
-        <a class="btn btn-primary" href="{{ route('empleados.index') }}"> Atrás</a>
-    </div>
+
+
+
 
     <br>
     <br>
