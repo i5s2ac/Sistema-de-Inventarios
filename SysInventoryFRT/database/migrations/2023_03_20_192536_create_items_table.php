@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('available'); //Disponibilidad del item
             $table->timestamps();
         });
+
     }
 
     /**

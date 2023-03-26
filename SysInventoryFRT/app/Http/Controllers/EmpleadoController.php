@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Empleado;
+use App\Models\Departamento;
 use Illuminate\Http\Request;
 
 class EmpleadoController extends Controller
@@ -14,7 +15,7 @@ class EmpleadoController extends Controller
     {
         $empleados = Empleado::latest()->paginate(5);
 
-        return view('empleados.index',compact('empleados'))
+        return view('empleados.index', compact('empleados'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -23,7 +24,8 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
-        return view('empleados.create');
+        $departamentos = Departamento::all();
+        return view('empleados.create', compact('departamentos'));
     }
 
     /**
@@ -39,7 +41,7 @@ class EmpleadoController extends Controller
         Empleado::create($request->all());
 
         return redirect()->route('empleados.index')
-                        ->with('success','Product created successfully.');
+            ->with('success', 'Product created successfully.');
     }
 
     /**
@@ -47,7 +49,7 @@ class EmpleadoController extends Controller
      */
     public function show(Empleado $empleado)
     {
-        return view('empleados.show',compact('empleado'));
+        return view('empleados.show', compact('empleado'));
     }
 
     /**
@@ -55,7 +57,7 @@ class EmpleadoController extends Controller
      */
     public function edit(Empleado $empleado)
     {
-        return view('empleados.edit',compact('empleado'));
+        return view('empleados.edit', compact('empleado'));
     }
 
     /**
@@ -71,8 +73,7 @@ class EmpleadoController extends Controller
         $empleado->update($request->all());
 
         return redirect()->route('empleados.index')
-                        ->with('success','Product updated successfully');
-
+            ->with('success', 'Product updated successfully');
     }
 
     /**
@@ -83,6 +84,6 @@ class EmpleadoController extends Controller
         $empleado->delete();
 
         return redirect()->route('empleados.index')
-                        ->with('success','Product deleted successfully');
+            ->with('success', 'Product deleted successfully');
     }
 }

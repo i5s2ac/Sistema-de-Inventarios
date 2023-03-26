@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\EmpleadoController;
+use App\Http\Controllers\DepartamentoController;
+
 
 
 /*
@@ -27,3 +29,6 @@ Route::post('/desasignar/{id}', [ItemController::class, 'desasignar'])->name('un
 
 
 Route::resource('empleados', EmpleadoController::class);
+
+Route::resource('departamentos', DepartamentoController::class);
+

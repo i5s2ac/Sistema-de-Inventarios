@@ -11,20 +11,21 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('empleados', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->text('detail');
-            $table->timestamps();
-        });
 
         Schema::create('departamentos', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->timestamps();
+        });
+
+        Schema::create('empleados', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('departamento_id');
-            $table->foreign('departamento_id')->references('id')->on('empleados');
-            $table->text('nombre');
+            $table->string('name');
+            $table->text('detail');
             $table->timestamps();
 
+            $table->foreign('departamento_id')->references('id')->on('departamentos');
         });
     }
     /**
