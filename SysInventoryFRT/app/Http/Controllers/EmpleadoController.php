@@ -42,7 +42,6 @@ class EmpleadoController extends Controller
             'email' => 'required|email|unique:empleados,email',
             'telefono' => 'required|integer|unique:empleados,telefono',
             'direccion' => 'required|string',
-            //'departamento' => 'required|string',
             'municipio' => 'required|string',
             'codigo_postal' => 'required|integer',
             'pais' => 'required|string',
@@ -71,10 +70,14 @@ class EmpleadoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Empleado $empleado)
+    public function edit($id)
     {
-        return view('empleados.edit', compact('empleado'));
+        $empleado = Empleado::find($id);
+        $departamentos = Departamento::all();
+        $current_departamento = Departamento::find($empleado->departamento_id);
+        return view('empleados.edit', compact('empleado', 'departamentos', 'current_departamento'));
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -82,8 +85,7 @@ class EmpleadoController extends Controller
     public function update(Request $request, Empleado $empleado)
     {
         $request->validate([
-            'name' => 'required',
-            'detail' => 'required',
+
         ]);
 
         $empleado->update($request->all());
