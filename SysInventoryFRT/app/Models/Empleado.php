@@ -27,7 +27,8 @@ class Empleado extends Model
         'salario',
         'tipo_contrato',
         'contacto_emergencia1',
-        'contacto_emergencia2'
+        'contacto_emergencia2',
+        'photo_employee'
     ];
 
     public function departamento()

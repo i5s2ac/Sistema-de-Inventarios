@@ -23,10 +23,18 @@
         </div>
     @endif
 
-    <form action="{{ route('empleados.store') }}" method="POST">
+    <form action="{{ route('empleados.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
+        <div class="mt-3">
+            <div class="mb-2">
+                <label for="photo_employee">Foto del item</label>
+            </div>
+            <input type="file" class="form-control" name="photo_employee" accept="image/*">
+        </div>
+
         <br>
+
 
         <div class="mt-3">
             <div class="row align-items-start">

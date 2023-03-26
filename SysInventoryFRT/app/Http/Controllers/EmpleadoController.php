@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Empleado;
 use App\Models\Departamento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class EmpleadoController extends Controller
 {
@@ -33,7 +35,7 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validatedData = $request->validate([
             'name' => 'required|string',
             'dpi' => 'required|integer',
             'fecha_de_nacimiento' => 'required|date',
@@ -51,10 +53,41 @@ class EmpleadoController extends Controller
             'contacto_emergencia1' => 'required|integer',
             'contacto_emergencia2' => 'required|integer',
             'departamento_id' => 'required|exists:departamentos,id',
+            'photo_employee' => 'sometimes|nullable|image|mimes:jpg,jpeg,png|max:2048',
+
         ]);
 
-        Empleado::create($request->all());
+        // Guardar la imagen y almacenar la ruta en la base de datos
+        $filepath = null;
+        if ($request->hasFile('photo_employee')) {
+            $photo = $request->file('photo_employee');
+            $filename = time() . '.' . $photo->getClientOriginalExtension();
+            $filepath = 'uploads/empleados/' . $filename;
+            Storage::disk('public')->put($filepath, file_get_contents($photo));
+        }
 
+        $empleado = new Empleado([
+            'name' => $validatedData['name'],
+            'dpi' => $validatedData['dpi'],
+            'fecha_de_nacimiento' => $validatedData['fecha_de_nacimiento'],
+            'genero' => $validatedData['genero'],
+            'estado_civil' => $validatedData['estado_civil'],
+            'email' => $validatedData['email'],
+            'telefono' => $validatedData['telefono'],
+            'direccion' => $validatedData['direccion'],
+            'municipio' => $validatedData['municipio'],
+            'codigo_postal' => $validatedData['codigo_postal'],
+            'pais' => $validatedData['pais'],
+            'puesto' => $validatedData['puesto'],
+            'salario' => $validatedData['salario'],
+            'tipo_contrato' => $validatedData['tipo_contrato'],
+            'contacto_emergencia1' => $validatedData['contacto_emergencia1'],
+            'contacto_emergencia2' => $validatedData['contacto_emergencia2'],
+            'departamento_id' => $validatedData['departamento_id'],
+            'photo_employee' => $filepath,
+        ]);
+
+        $empleado->save();
         return redirect()->route('empleados.index')
             ->with('success', 'Product created successfully.');
     }
@@ -84,9 +117,7 @@ class EmpleadoController extends Controller
      */
     public function update(Request $request, Empleado $empleado)
     {
-        $request->validate([
-
-        ]);
+        $request->validate([]);
 
         $empleado->update($request->all());
 

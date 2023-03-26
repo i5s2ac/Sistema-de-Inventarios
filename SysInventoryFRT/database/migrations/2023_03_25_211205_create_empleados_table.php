@@ -38,6 +38,7 @@ return new class extends Migration
             $table->string('tipo_contrato');
             $table->bigInteger('contacto_emergencia1');
             $table->bigInteger('contacto_emergencia2');
+            $table->string('photo_employee')->nullable();
             $table->timestamps();
 
         });
