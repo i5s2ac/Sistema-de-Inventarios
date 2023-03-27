@@ -97,7 +97,8 @@ class EmpleadoController extends Controller
      */
     public function show(Empleado $empleado)
     {
-        return view('empleados.show', compact('empleado'));
+    $departamento = $empleado->departamento;
+    return view('empleados.show', compact('empleado', 'departamento'));
     }
 
     /**
