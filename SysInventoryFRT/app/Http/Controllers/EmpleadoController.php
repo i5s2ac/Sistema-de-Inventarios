@@ -16,8 +16,8 @@ class EmpleadoController extends Controller
     public function index()
     {
         $empleados = Empleado::latest()->paginate(5);
-
-        return view('empleados.index', compact('empleados'))
+        $departamentos = Departamento::all(); // Obtener los datos de los departamentos
+        return view('empleados.index', compact('empleados', 'departamentos')) // Pasar la variable $departamentos a la vista
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -97,8 +97,8 @@ class EmpleadoController extends Controller
      */
     public function show(Empleado $empleado)
     {
-    $departamento = $empleado->departamento;
-    return view('empleados.show', compact('empleado', 'departamento'));
+        $departamento = $empleado->departamento;
+        return view('empleados.show', compact('empleado', 'departamento'));
     }
 
     /**

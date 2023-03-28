@@ -78,9 +78,9 @@
 
             <div class="row">
                 <div class="col text-left">
-                    <a class="btn btn-primary" href="{{ route('items.index') }}">
+                    <a class="btn btn-primary" href="{{ route('empleados.index') }}">
                         Atrás</a>
-                    <a class="btn btn-danger" href="{{ route('items.index') }}">
+                    <a class="btn btn-danger" href="{{ route('empleados.index') }}">
                         <i class="fas fa-file-pdf"></i> Descargar en PDF
                     </a>
                 </div>

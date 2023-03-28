@@ -57,7 +57,7 @@
                 <div class="mb-2">
                     <label for="photo_employee">Foto del item</label>
                 </div>
-                <input type="file" class="form-control" id="photo_employee" name="photo_employee" autocomplete="off"
+                <input type="file" class="form-control" id="photo_employee" name="photo_employee"
                     accept="image/*">
             </div>
 
@@ -70,7 +70,7 @@
                         <div class="mb-2">
                             <label for="name">Nombre completo</label>
                         </div>
-                        <input type="text" class="form-control" id="name" name="name" autocomplete="off"
+                        <input type="text" class="form-control" id="name" name="name"
                             placeholder="Enter name">
 
                     </div>
@@ -78,7 +78,7 @@
                         <div class="mb-2">
                             <label for="dpi">DPI</label>
                         </div>
-                        <input type="number" class="form-control" id="dpi" name="dpi" autocomplete="off"
+                        <input type="number" class="form-control" id="dpi" name="dpi"
                             placeholder="Enter dpi">
 
                     </div>
@@ -98,7 +98,7 @@
                         <div class="mb-2">
                             <label for="genero">Género</label>
                         </div>
-                        <select class="form-control" id="genero" name="genero" autocomplete="off">
+                        <select class="form-control" id="genero" name="genero">
                             <option value="" selected>Selecciona una opción</option>
                             <option value="Masculino">Masculino</option>
                             <option value="Femenino">Femenino</option>
@@ -109,7 +109,7 @@
                         <div class="mb-2">
                             <label for="estado_civil">Estado civil</label>
                         </div>
-                        <select class="form-control" id="estado_civil" name="estado_civil" autocomplete="off">
+                        <select class="form-control" id="estado_civil" name="estado_civil">
                             <option value="" selected>Selecciona una opción</option>
                             <option value="Soltero(a)">Soltero(a)</option>
                             <option value="Casado(a)">Casado(a)</option>
@@ -121,7 +121,7 @@
                         <div class="mb-2">
                             <label for="email">Email</label>
                         </div>
-                        <input type="email" class="form-control" id="email" name="email" autocomplete="off"
+                        <input type="email" class="form-control" id="email" name="email"
                             placeholder="Enter email">
                     </div>
                 </div>
@@ -133,7 +133,7 @@
                         <div class="mb-2">
                             <label for="telefono">Teléfono</label>
                         </div>
-                        <input type="tel" class="form-control" id="telefono" name="telefono" autocomplete="off"
+                        <input type="tel" class="form-control" id="telefono" name="telefono"
                             placeholder="Enter phone number">
                     </div>
                     <div class="mt-3">
@@ -151,7 +151,7 @@
                         <div class="mb-2">
                             <label for="municipio">Municipio</label>
                         </div>
-                        <input type="text" class="form-control" id="municipio" name="municipio" autocomplete="off"
+                        <input type="text" class="form-control" id="municipio" name="municipio"
                             placeholder="Enter municipio">
                     </div>
                     <div class="col">
@@ -165,7 +165,7 @@
                         <div class="mb-2">
                             <label for="pais">País</label>
                         </div>
-                        <input type="text" class="form-control" id="pais" name="pais" autocomplete="off"
+                        <input type="text" class="form-control" id="pais" name="pais"
                             placeholder="Enter país">
                     </div>
                 </div>
@@ -193,21 +193,21 @@
                         <div class="mb-2">
                             <label for="puesto">Puesto</label>
                         </div>
-                        <input type="text" class="form-control" id="puesto" name="puesto" autocomplete="off"
+                        <input type="text" class="form-control" id="puesto" name="puesto"
                             placeholder="Enter puesto">
                     </div>
                     <div class="col">
                         <div class="mb-2">
                             <label for="salario">Salario</label>
                         </div>
-                        <input type="number" class="form-control" id="salario" name="salario" autocomplete="off"
+                        <input type="number" class="form-control" id="salario" name="salario"
                             placeholder="Enter salario">
                     </div>
                     <div class="col">
                         <div class="mb-2">
                             <label for="tipo_contrato">Tipo de contrato</label>
                         </div>
-                        <select class="form-control" id="tipo_contrato" name="tipo_contrato" autocomplete="off">
+                        <select class="form-control" id="tipo_contrato" name="tipo_contrato">
                             <option value="" selected>Selecciona una opción</option>
                             <option value="tiempo completo">Tiempo completo</option>
                             <option value="medio tiempo">Medio tiempo</option>
@@ -226,7 +226,7 @@
                             <label for="departamento">Departamento</label>
                         </div>
                         <div style="display: flex;">
-                            <select class="form-control" name="departamento_id" id="departamento" autocomplete="off">
+                            <select class="form-control" name="departamento_id" id="departamento">
                                 <option value="" selected>Selecciona un departamento</option>
                                 @foreach ($departamentos as $departamento)
                                     <option value="{{ $departamento->id }}"

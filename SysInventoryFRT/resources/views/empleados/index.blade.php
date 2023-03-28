@@ -164,17 +164,23 @@
             <thead class="table-dark">
                 <tr>
                     <th>No</th>
-                    <th>Nombre</th>
-                    <th>Nombre</th>
+                    <th>Nombre completo</th>
+                    <th>DPI</th>
+                    <th>Puesto</th>
+                    <th>Departamento</th>
+                    <th>Email</th>
 
-                    <th width="400px">Acciones</th>
+                    <th width="200px">Acciones</th>
                 </tr>
             </thead>
             @foreach ($empleados as $empleado)
                 <tr>
                     <td>{{ ++$i }}</td>
                     <td>{{ $empleado->name }}</td>
-                    <td>{{ $empleado->detail }}</td>
+                    <td>{{ $empleado->dpi }}</td>
+                    <td>{{ $empleado->puesto }}</td>
+                    <td>{{ $empleado->departamento->name }}</td>
+                    <td>{{ $empleado->email }}</td>
 
                     <td>
                         <div class="btn-group btn-group-md separated">
