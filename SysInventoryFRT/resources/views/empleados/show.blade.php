@@ -39,8 +39,6 @@
                     </div>
                 </div>
 
-
-
                 <div class="col-md-8">
 
                     <strong>Nombre Completo: </strong> {{ $empleado->name }}<br>

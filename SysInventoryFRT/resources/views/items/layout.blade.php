@@ -76,7 +76,6 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
-
 </head>
 
 <body>
@@ -86,7 +85,6 @@
                 <div class="d-flex flex-column flex-shrink-0 p-3">
 
                     <img src="{{ asset('img/FRT.png') }}" alt="Logo" width="180" height="65">
-
 
                     <hr>
                     <ul class="nav nav-pills flex-column mb-auto" id="sidebar-menu">
@@ -148,9 +146,13 @@
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl7/6en8XCp+HHAAK5GSLf2xlYtvJ8U2Q4U+9cuEnJoa3" crossorigin="anonymous"></script>
+
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0-alpha1/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl7/1L_dstPt3HV5HzF6Gvk/e3U2XsX6wRdo1Jszcr" crossorigin="anonymous">
+
+
     <script>
         $(document).ready(function() {
             $('#sidebar-menu a').on('click', function() {
