@@ -4,9 +4,21 @@
 
     <br>
 
-    <button id="datos-personales-btn" class="btn btn-primary">Datos Personales</button>
-    <button id="datos-empleo-btn" class="btn btn-secondary">Datos de Empleo</button>
-    <button id="contactos-emergencia-btn" class="btn btn-secondary">Contactos de Emergencia</button>
+    <button id="datos-personales-btn" class="btn btn-primary" style="width: 400px;">
+        <i class="fas fa-user" style="margin-right: 10px;"></i>
+        Datos Personales
+    </button>
+
+    <button id="datos-empleo-btn" class="btn btn-secondary" style="width: 400px;">
+        <i class="fas fa-briefcase" style="margin-right: 10px;"></i>
+        Datos de Empleo
+    </button>
+
+    <button id="contactos-emergencia-btn" class="btn btn-secondary" style="width: 400px;">
+        <i class="fas fa-exclamation-triangle" style="margin-right: 10px;"></i>
+        Contactos de Emergencia
+    </button>
+
 
 
     @if ($errors->any())
