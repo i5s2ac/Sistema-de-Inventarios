@@ -19,8 +19,6 @@
         Contactos de Emergencia
     </button>
 
-
-
     @if ($errors->any())
         <div class="alert alert-danger">
             <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -52,7 +50,6 @@
 
             <br>
 
-
             <div class="mt-3">
                 <div class="mb-2">
                     <label for="photo_employee">Foto del item</label>
@@ -62,7 +59,6 @@
             </div>
 
             <br>
-
 
             <div class="mt-3">
                 <div class="row align-items-start">
@@ -174,7 +170,6 @@
 
         <br>
 
-
         <div id="datos-empleo-content" style="display: none;">
 
             <div class="row">
@@ -244,10 +239,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
         </div>
 
         <div id="contactos-emergencia-content" style="display: none;">
@@ -294,11 +285,7 @@
         <br>
         <br>
 
-
-
-
     </form>
-
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -339,8 +326,5 @@
             });
         });
     </script>
-
-
-
 
 @endsection

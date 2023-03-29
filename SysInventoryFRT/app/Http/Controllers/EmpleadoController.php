@@ -118,13 +118,42 @@ class EmpleadoController extends Controller
      */
     public function update(Request $request, Empleado $empleado)
     {
-        $request->validate([]);
+        $validatedData = $request->validate([
+            'name' => 'required|string',
+            'dpi' => 'required|integer',
+            'fecha_de_nacimiento' => 'required|date',
+            'genero' => 'required|string',
+            'estado_civil' => 'required|string',
+            'email' => 'required|email|unique:empleados,email,' . $empleado->id,
+            'telefono' => 'required|integer|unique:empleados,telefono,' . $empleado->id,
+            'direccion' => 'required|string',
+            'municipio' => 'required|string',
+            'codigo_postal' => 'required|integer',
+            'pais' => 'required|string',
+            'puesto' => 'required|string',
+            'salario' => 'required|numeric',
+            'tipo_contrato' => 'required|string',
+            'contacto_emergencia1' => 'required|integer',
+            'contacto_emergencia2' => 'required|integer',
+            'departamento_id' => 'required|exists:departamentos,id',
+            'photo_employee' => 'sometimes|nullable|image|mimes:jpg,jpeg,png|max:2048',
+        ]);
 
-        $empleado->update($request->all());
+        // Guardar la imagen y almacenar la ruta en la base de datos
+        if ($request->hasFile('photo_employee')) {
+            $photo = $request->file('photo_employee');
+            $filename = time() . '.' . $photo->getClientOriginalExtension();
+            $filepath = 'uploads/empleados/' . $filename;
+            Storage::disk('public')->put($filepath, file_get_contents($photo));
+            $validatedData['photo_employee'] = $filepath;
+        }
+
+        $empleado->update($validatedData);
 
         return redirect()->route('empleados.index')
-            ->with('success', 'Product updated successfully');
+            ->with('success', 'Empleado actualizado con éxito.');
     }
+
 
     /**
      * Remove the specified resource from storage.
