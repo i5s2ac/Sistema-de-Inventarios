@@ -141,14 +141,13 @@
 @section('content')
     <br>
 
-
     <div class="row">
 
         <div class="col-lg-12 margin-tb">
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('items.create') }}"
                     style="width: 100%; padding: 10px; background-color: #04748c;">
-                    <i class="fas fa-box"></i> <span style="padding-left: 10px;">Create New item</span>
+                    <i class="fas fa-box"></i> <span style="padding-left: 10px;">Crear nuevo item</span>
                 </a>
             </div>
         </div>

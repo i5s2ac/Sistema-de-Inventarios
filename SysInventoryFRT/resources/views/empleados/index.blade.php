@@ -152,7 +152,7 @@
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('empleados.create') }}"
                     style="width: 100%; padding: 10px; background-color: #04748c;">
-                    <i class="fas fa-box"></i> <span style="padding-left: 10px;">Create New empleado</span>
+                    <i class="fas fa-box"></i> <span style="padding-left: 10px;">Crear nuevo empleado</span>
                 </a>
             </div>
         </div>
@@ -195,7 +195,8 @@
                                 style="background-color: #04748c; color: white"
                                 href="{{ route('empleados.edit', $empleado->id) }}">Edit</a>
 
-                            <form action="{{ route('empleados.destroy', $empleado->id) }}" method="POST">@csrf @method('DELETE')
+                            <form action="{{ route('empleados.destroy', $empleado->id) }}" method="POST">
+                                @csrf @method('DELETE')
                                 <button type="submit" class="btn btn-md"
                                     style="background-color: #04748c; color: white">Borrar</button>
                             </form>

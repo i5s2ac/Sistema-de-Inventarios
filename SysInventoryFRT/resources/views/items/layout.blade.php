@@ -88,17 +88,11 @@
 
                     <hr>
                     <ul class="nav nav-pills flex-column mb-auto" id="sidebar-menu">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link active" aria-current="page" data-page="home">
-                                <i class="fas fa-home me-2"></i>
 
-                                Home
-                            </a>
-                        </li>
                         <li>
-                            <a href="#" class="nav-link text-white" data-page="dashboard">
-                                <i class="fas fa-tachometer-alt me-2"></i>
-                                Dashboard
+                            <a href="{{ route('home') }}" class="nav-link text-white" data-page="dashboard">
+                                <i class="fas fa-home me-2"></i>
+                                Home
                             </a>
                         </li>
                         <li>
