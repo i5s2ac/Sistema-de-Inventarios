@@ -27,8 +27,6 @@ class ItemController extends Controller
         return view('items.create');
     }
 
-
-
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -94,7 +92,6 @@ class ItemController extends Controller
 
         //return file_put_contents(public_path('images/barcode-' . $sku . '.png'), $barcode);
     }
-
 
     public function show(Item $item)
     {

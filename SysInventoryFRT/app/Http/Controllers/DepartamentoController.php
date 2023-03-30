@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Departamento;
 use Illuminate\Http\Request;
+use App\Models\Empleado; // Importa el modelo Empleado
+
 
 class DepartamentoController extends Controller
 {
@@ -16,8 +18,10 @@ class DepartamentoController extends Controller
     }
 
     public function create()
+
     {
-        return view('departamentos.create');
+        $empleados = Empleado::all(); // Obtén todos los empleados
+        return view('departamentos.create', compact('empleados')); // Pasa la variable $empleados a la vista
     }
 
     public function store(Request $request)
@@ -46,6 +50,8 @@ class DepartamentoController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'descripcion' => 'required',
+            //'encargado' => 'required',
         ]);
 
         $departamento->update($request->all());

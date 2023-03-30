@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 // app/Models/Departamento.php
 class Departamento extends Model
 {
-    protected $fillable = ['name'];
+    protected $fillable = ['name','descripcion','encargado'];
 
     public static $departamentos;
 

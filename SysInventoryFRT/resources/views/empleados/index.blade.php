@@ -114,23 +114,28 @@
 
             <div class="card card-empleados">
                 <span class="material-icons">
-                    inventory_2
+                    person
                 </span>
                 <h5 class="card-title">empleados registrados</h5>
-                <p class="card-text">100</p>
+                <p class="card-text">{{ $empleadoCount }}</p>
             </div>
 
-            <div class="card card-available">
-                <span class="material-icons">check_circle </span>
-                <h5 class="card-title">empleados disponibles</h5>
-                <p class="card-text">100</p>
+            <div class="card card-empleados">
+                <span class="material-icons">
+                    person
+                </span>
+                <h5 class="card-title">empleados registrados</h5>
+                <p class="card-text">{{ $empleadoCount }}</p>
             </div>
 
-            <div class="card card-unavailable">
-                <span class="material-icons">highlight_off </span>
-                <h5 class="card-title">empleados ocupados</h5>
-                <p class="card-text">100</p>
+            <div class="card card-empleados">
+                <span class="material-icons">
+                    person
+                </span>
+                <h5 class="card-title">empleados registrados</h5>
+                <p class="card-text">{{ $empleadoCount }}</p>
             </div>
+
         </div>
     </div>
 
@@ -170,7 +175,7 @@
                     <th>Departamento</th>
                     <th>Email</th>
 
-                    <th width="200px">Acciones</th>
+                    <th width="250px">Acciones</th>
                 </tr>
             </thead>
             @foreach ($empleados as $empleado)

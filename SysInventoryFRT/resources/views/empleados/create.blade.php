@@ -2,6 +2,10 @@
 
 @section('content')
 
+    <script>
+        localStorage.clear();
+    </script>
+
     <br>
 
     <button id="datos-personales-btn" class="btn btn-primary" style="width: 400px;">
@@ -31,7 +35,7 @@
     @endif
 
     <form action="{{ route('empleados.store') }}" method="POST" enctype="multipart/form-data"
-        onsubmit="localStorage.clear(); return validateForm();">
+        onsubmit="return validateForm();">
         @csrf
 
         <br>
@@ -54,8 +58,7 @@
                 <div class="mb-2">
                     <label for="photo_employee">Foto del item</label>
                 </div>
-                <input type="file" class="form-control" id="photo_employee" name="photo_employee"
-                    accept="image/*">
+                <input type="file" class="form-control" id="photo_employee" name="photo_employee" accept="image/*">
             </div>
 
             <br>
@@ -66,16 +69,14 @@
                         <div class="mb-2">
                             <label for="name">Nombre completo</label>
                         </div>
-                        <input type="text" class="form-control" id="name" name="name"
-                            placeholder="Enter name">
-
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter name">
                     </div>
+
                     <div class="col">
                         <div class="mb-2">
                             <label for="dpi">DPI</label>
                         </div>
-                        <input type="number" class="form-control" id="dpi" name="dpi"
-                            placeholder="Enter dpi">
+                        <input type="number" class="form-control" id="dpi" name="dpi" placeholder="Enter dpi">
 
                     </div>
                     <div class="col">
@@ -117,8 +118,7 @@
                         <div class="mb-2">
                             <label for="email">Email</label>
                         </div>
-                        <input type="email" class="form-control" id="email" name="email"
-                            placeholder="Enter email">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
                     </div>
                 </div>
             </div>

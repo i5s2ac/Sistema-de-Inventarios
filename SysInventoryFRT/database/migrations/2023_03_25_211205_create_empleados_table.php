@@ -15,6 +15,9 @@ return new class extends Migration
         Schema::create('departamentos', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('descripcion');
+            $table->string('encargado_id')->nullable();
+
             $table->timestamps();
         });
 
@@ -31,7 +34,7 @@ return new class extends Migration
             $table->bigInteger('telefono')->unique();
             $table->text('direccion');
             $table->string('municipio');
-            $table->bigInteger('codigo_postal');
+            $table->string('codigo_postal');
             $table->string('pais');
             $table->string('puesto');
             $table->decimal('salario');
