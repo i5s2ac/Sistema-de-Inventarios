@@ -99,6 +99,23 @@
             margin-left: 260px;
             /* Ajusta este valor según el ancho de tu barra lateral */
         }
+
+        .toggle-btn {
+            position: fixed;
+            left: 15px;
+            top: 15px;
+            z-index: 1000;
+            cursor: pointer;
+            color: #000;
+            /* Cambia el color del ícono a negro */
+            font-size: 18px;
+            /* Aumenta el tamaño del ícono */
+        }
+
+        .toggle-btn.open {
+            color: #fff;
+            /* Cambia el color del ícono a blanco */
+        }
     </style>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -110,6 +127,9 @@
 <body>
 
     <div class="main-content">
+
+        <br>
+
         <div class="card-container">
 
             <div class="card card-empleados">
@@ -206,4 +226,32 @@
             @endforeach
         </table>
     </div>
+
+    <script>
+        $(document).ready(function() {
+            // ...
+
+            // Función para actualizar el tamaño de las tarjetas
+            // Función para actualizar el tamaño de las tarjetas
+            function updateCardSize() {
+                if ($('#sidebar').hasClass('open')) {
+                    $('.main-content').css('margin-left', '260px');
+                } else {
+                    /* Actualiza el margen izquierdo a 50px cuando el sidebar esté cerrado */
+                    $('.main-content').css('margin-left', '20px');
+                }
+            }
+
+
+            // Actualizar el tamaño de las tarjetas cuando el sidebar se abre o cierra
+            $('#toggle-btn').on('click', function() {
+                setTimeout(function() {
+                    updateCardSize();
+                }, 100);
+            });
+
+            // Actualizar el tamaño de las tarjetas al cargar la página
+            updateCardSize();
+        });
+    </script>
 @endsection
