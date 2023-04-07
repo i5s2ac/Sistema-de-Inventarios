@@ -1,6 +1,12 @@
-@extends('items.layout')
+@extends('layouts.layout')
 
 @section('content')
+
+    <style>
+        #toggle-btn {
+            display: none;
+        }
+    </style>
 
     @if ($errors->any())
         <div class="alert alert-danger">

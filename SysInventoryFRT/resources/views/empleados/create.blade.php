@@ -1,6 +1,26 @@
-@extends('items.layout')
+@extends('layouts.layout')
 
 @section('content')
+
+    <style>
+        #toggle-btn {
+            display: none;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 10px;
+        }
+
+        .custom-btn {
+            flex: 1;
+            min-width: 200px;
+            max-width: 500px;
+            text-align: center;
+        }
+    </style>
 
     <script>
         localStorage.clear();
@@ -8,20 +28,20 @@
 
     <br>
 
-    <button id="datos-personales-btn" class="btn btn-primary" style="width: 400px;">
-        <i class="fas fa-user" style="margin-right: 10px;"></i>
-        Datos Personales
-    </button>
-
-    <button id="datos-empleo-btn" class="btn btn-secondary" style="width: 400px;">
-        <i class="fas fa-briefcase" style="margin-right: 10px;"></i>
-        Datos de Empleo
-    </button>
-
-    <button id="contactos-emergencia-btn" class="btn btn-secondary" style="width: 400px;">
-        <i class="fas fa-exclamation-triangle" style="margin-right: 10px;"></i>
-        Contactos de Emergencia
-    </button>
+    <div class="button-container">
+        <button id="datos-personales-btn" class="custom-btn btn btn-primary">
+            <i class="fas fa-user" style="margin-right: 10px;"></i>
+            Datos Personales
+        </button>
+        <button id="datos-empleo-btn" class="custom-btn btn btn-secondary">
+            <i class="fas fa-briefcase" style="margin-right: 10px;"></i>
+            Datos de Empleo
+        </button>
+        <button id="contactos-emergencia-btn" class="custom-btn btn btn-secondary">
+            <i class="fas fa-exclamation-triangle" style="margin-right: 10px;"></i>
+            Contactos de Emergencia
+        </button>
+    </div>
 
     @if ($errors->any())
         <div class="alert alert-danger">

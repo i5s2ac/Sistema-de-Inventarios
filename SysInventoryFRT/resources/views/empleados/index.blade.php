@@ -1,4 +1,4 @@
-@extends('items.layout')
+@extends('layouts.layout')
 
 <!DOCTYPE html>
 <html lang="en">
